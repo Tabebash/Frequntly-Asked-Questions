@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frquently Asked Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('./bg.jpg') no-repeat center center / cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .accordion {
+            background-color: #fff;
+            width: 65%;
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .accordion .accordion-title {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .accordion .accordion-container .question {
+            font-size: 20px;
+            padding: 1rem 0;
+            border-bottom: 1.5px solid #000;
+            width: 100%;
+            position: relative;
+        }
+
+        .accordion .accordion-container .question::after {
+            content: '+';
+            font-size: 22px;
+
+            position: absolute;
+            right: -1px;
+        }
+
+        .accordion .accordion-container .answer {
+            margin-top: 1rem;
+            line-height: 1.4rem;
+            font-size: 1.2rem;
+
+            height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .accordion .accordion-container.active .answer {
+            height: 100px;
+            overflow:auto;
+        }
+
+        .accordion .accordion-container.active .answer::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .accordion .accordion-container.active .answer::-webkit-scrollbar-thumb {
+            background-color: lightgrey;
+        }
+        .accordion .accordion-container.active .answer::-webkit-scrollbar-track {
+            background-color: whitesmoke;
+        }
+
+        .accordion .accordion-container.active .question::after {
+            content: '-';
+            font-size: 22px;
+            transition: 0.5s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <h2 class="accordion-title">Frequently Asked Questions</h2>
+
+        <div class="accordion-container">
+            <p class="question">What is your return policy?</p>
+            <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum voluptatum aliquid fuga, eius enim possimus omnis minus sit quas nihil itaque, fugiat fugit veniam nostrum, ducimus eos amet esse.</p>
+        </div>
+        <div class="accordion-container">
+            <p class="question">What is your return policy?</p>
+            <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum voluptatum aliquid fuga, eius enim possimus omnis minus sit quas nihil itaque, fugiat fugit veniam nostrum, ducimus eos amet esse.</p>
+        </div>
+        <div class="accordion-container">
+            <p class="question">What is your return policy?</p>
+            <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum voluptatum aliquid fuga, eius enim possimus omnis minus sit quas nihil itaque, fugiat fugit veniam nostrum, ducimus eos amet esse.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        const accordion = document.getElementsByClassName('accordion-container');
+
+        for( let i = 0; i < accordion.length; i++) {
+
+            accordion[i].addEventListener('click', function() {
+            this.classList.toggle('active');
+
+        })
+        }
+
+       
+    </script>
+</body>
+</html>
